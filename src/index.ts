@@ -1,4 +1,4 @@
-import p from 'phin';
+import axios from 'axios';
 
 const RE_YOUTUBE =
   /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i;
@@ -34,21 +34,21 @@ export class YoutubeTranscript {
   ): Promise<TranscriptResponse[]> {
     const identifier = this.retrieveVideoId(videoId);
     try {
-      const { body: videoPageBody } = await p(
+      const response = await axios.get(
         `https://www.youtube.com/watch?v=${identifier}`
       );
+      const videoPageBody = response.data;
       const innerTubeApiKey = videoPageBody
         .toString()
         .split('"INNERTUBE_API_KEY":"')[1]
         .split('"')[0];
 
       if (innerTubeApiKey && innerTubeApiKey.length > 0) {
-        const { body }: { body: Record<string, any> } = await p({
-          url: `https://www.youtube.com/youtubei/v1/get_transcript?key=${innerTubeApiKey}`,
-          method: 'POST',
-          data: this.generateRequest(videoPageBody.toString(), config),
-          parse: 'json',
-        });
+        const response = await axios.post(
+          `https://www.youtube.com/youtubei/v1/get_transcript?key=${innerTubeApiKey}`,
+          this.generateRequest(videoPageBody.toString(), config)
+        );
+        const body = response.data;
         if (body.responseContext) {
           if (!body.actions) {
             throw new Error('Transcript is disabled on this video');

@@ -1,7 +1,7 @@
 {
-  "name": "youtube-transcript",
-  "version": "1.0.6",
-  "description": "Fetch transcript from a youtube video",
+  "name": "youtube-transcript-axios",
+  "version": "1.0.7",
+  "description": "Fetch transcript from a youtube video but using axios",
   "main": "dist/youtube-transcript.common.js",
   "browser": "dist/youtube-transcript.esm.js",
   "module": "dist/youtube-transcript.esm.js",
@@ -9,10 +9,12 @@
   "scripts": {
     "build": "rollup -c"
   },
-  "author": "Kakulukian",
+  "author": "Kakulukian, arionrefat",
   "keywords": [
     "youtube",
-    "transcript"
+    "transcript",
+    "axios",
+    "react-native"
   ],
   "license": "MIT",
   "devDependencies": {
@@ -23,14 +25,14 @@
     "typescript": "^4.0.3"
   },
   "dependencies": {
-    "phin": "^3.5.0"
+    "axios": "^1.4.0"
   },
   "files": [
     "dist/*"
   ],
-  "repository": "https://github.com/Kakulukian/youtube-transcript.git",
+  "repository": "https://github.com/arionrefat/youtube-transcript-axios.git",
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/Kakulukian/youtube-transcript"
+  "homepage": "https://github.com/arionrefat/youtube-transcript-axios"
 }

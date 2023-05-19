@@ -1,5 +1,7 @@
 # youtube-transcript
 
+## This is a fork of youtube-transcript package using axios,did this mainly because of react-native issues
+
 [![npm version](https://badge.fury.io/js/youtube-transcript.svg)](https://badge.fury.io/js/youtube-transcript)
 
 I wanted to extract a transcript from a youtube video but there was only a python script so I created this to do it in node.
