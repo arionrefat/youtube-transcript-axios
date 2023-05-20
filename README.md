@@ -1,6 +1,6 @@
-# youtube-transcript
+# youtube-transcript-axios
 
-## This is a fork of youtube-transcript package using axios,did this mainly because of react-native issues
+### This is a fork of youtube-transcript package which replaces phin with axios. Phin causes issue in react-native as react-native doesn't include nodejs standard library
 
 [![npm version](https://badge.fury.io/js/youtube-transcript.svg)](https://badge.fury.io/js/youtube-transcript)
 
@@ -10,19 +10,19 @@ This package use unofficial YTB API so it can be broken over the time if no upda
 ## Installation
 
 ```bash
-$ npm i youtube-transcript
+$ npm i youtube-transcript-axios
 ```
 
 or
 
 ```bash
-$ yarn add youtube-transcript
+$ yarn add youtube-transcript-axios
 ```
 
 ## Usage
 
 ```js
-import { YoutubeTranscript } from 'youtube-transcript';
+import { YoutubeTranscript } from 'youtube-transcript-axios';
 
 YoutubeTranscript.fetchTranscript('videoId or URL').then(console.log);
 ```
